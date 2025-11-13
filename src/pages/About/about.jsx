@@ -214,13 +214,13 @@ const About = (props) => {
             position: relative;
           }
           .vision-box h2, .mission-box h2 {
-            font-size: 24px;
+            font-size: 32px;
             font-weight: bold;
             margin-bottom: 20px;
             letter-spacing: 1px;
           }
           .vision-box p, .mission-box p {
-            font-size: 14px;
+            font-size: 18px;
             line-height: 1.8;
             max-width: 500px;
           }
@@ -332,39 +332,98 @@ const About = (props) => {
             .hero-section {
               padding: 0;
               min-height: auto;
-              margin-top: 80px;
+              margin-top: 72px;
+              flex-direction: column;
             }
             .hero-content {
               flex-direction: column;
-              gap: 40px;
+              gap: 0;
               margin-right: 0;
-              padding: 60px 24px;
+              padding: 30px 20px 20px 20px;
+              order: 1;
             }
             .hero-text {
               max-width: 100%;
+              text-align: center;
+              align-items: center;
             }
             .hero-text h1 {
-              font-size: 2rem;
+              font-size: 1.75rem;
+              line-height: 1.3;
+              text-align: center;
             }
             .hero-text p {
-              font-size: 1rem;
+              font-size: 0.95rem;
+              text-align: center;
+              margin-bottom: 20px;
+            }
+            .hero-text .cta-button {
+              align-self: center;
+              margin-bottom: 30px;
             }
             .hero-image {
               position: relative;
               top: 0;
               width: 100%;
-              height: 400px;
-              margin-top: -80px;
+              height: 250px;
+              margin-top: 0;
+              order: 2;
             }
             .vision-mission-section {
               flex-direction: column;
             }
+            .vision-box, .mission-box {
+              padding: 40px 20px;
+            }
+            .vision-box h2, .mission-box h2 {
+              font-size: 20px;
+              text-align: center;
+            }
+            .vision-box p, .mission-box p {
+              font-size: 15px;
+            }
+            .description-section {
+              padding: 40px 20px;
+            }
+            .description-section p {
+              font-size: 16px;
+            }
+            .certifications-section {
+              padding: 40px 20px;
+            }
             .values-section {
-              gap: 40px;
+              gap: 30px;
+              padding: 40px 20px;
+              flex-direction: column;
+              align-items: center;
+            }
+            .value-item {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              width: 120px;
+            }
+            .value-icon {
+              width: 40px;
+              height: 40px;
+              margin-bottom: 10px;
+            }
+            .value-item h4 {
+              font-size: 12px;
+              text-align: center;
             }
             .cert-grid {
               flex-direction: column;
               align-items: center;
+              gap: 20px;
+            }
+            .cert-item {
+              flex-direction: column;
+              text-align: center;
+              gap: 15px;
+            }
+            .cert-text {
+              text-align: center;
             }
           }
         `}

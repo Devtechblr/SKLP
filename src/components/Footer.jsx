@@ -21,9 +21,9 @@ export default function Footer() {
           {/* Center: Links and Socials */}
           <div className="col-span-4 flex flex-col items-center gap-6">
             <nav className="flex items-center gap-16 text-[14px]">
-              <NavLink to="/about" className="hover:text-orange-400">About</NavLink>
-              <NavLink to="/gallery" className="hover:text-orange-400">Gallery</NavLink>
-              <NavLink to="/contact" className="hover:text-orange-400">Contact Us</NavLink>
+              <NavLink to="/about" className="hover:text-orange-400" onClick={() => window.scrollTo(0, 0)}>About</NavLink>
+              <NavLink to="/gallery" className="hover:text-orange-400" onClick={() => window.scrollTo(0, 0)}>Gallery</NavLink>
+              <NavLink to="/contact" className="hover:text-orange-400" onClick={() => window.scrollTo(0, 0)}>Contact Us</NavLink>
             </nav>
             <div className="flex items-center gap-24 text-orange-400">
               <a href="https://www.facebook.com/profile.php?id=61583022466033" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
@@ -44,11 +44,11 @@ export default function Footer() {
           {/* Right: Contact */}
           <div className="col-span-4 flex flex-col items-end gap-4 text-right">
             <div className="flex items-center gap-3 text-[14px]">
-              <span className="text-orange-400"><Phone size={18} /></span>
+              <span className="text-orange-400 w-[18px] flex justify-center"><Phone size={18} /></span>
               <span className="text-white">+91 9900075805</span>
             </div>
             <div className="flex items-center gap-3 text-[14px]">
-              <span className="text-orange-400"><Mail size={18} /></span>
+              <span className="text-orange-400 w-[18px] flex justify-center"><Mail size={18} /></span>
               <span className="text-white">Mr. Nataraj D.K. Gowda</span>
             </div>
           </div>
@@ -59,13 +59,13 @@ export default function Footer() {
           {/* Contact Information (Top) */}
           <div className="flex flex-col gap-4 mb-6">
             <div className="flex items-center gap-3 text-[14px]">
-              <div className="bg-orange-400 rounded-full p-2 flex-shrink-0">
+              <div className="bg-orange-400 rounded-full p-2 flex-shrink-0 w-8 h-8 flex items-center justify-center">
                 <Phone size={16} className="text-white" />
               </div>
               <span className="text-white">+91 9900075805</span>
             </div>
             <div className="flex items-center gap-3 text-[14px]">
-              <div className="bg-orange-400 rounded-full p-2 flex-shrink-0">
+              <div className="bg-orange-400 rounded-full p-2 flex-shrink-0 w-8 h-8 flex items-center justify-center">
                 <Mail size={16} className="text-white" />
               </div>
               <span className="text-white">Mr. Nataraj D.K. Gowda</span>
@@ -90,26 +90,26 @@ export default function Footer() {
               <div>
                 <h3 className="font-bold text-[20px] leading-tight mb-3 text-white">COMPANY</h3>
                 <nav className="flex flex-col gap-2.5 text-[14px]">
-                  <NavLink to="/about" className="text-white hover:text-orange-400 transition-colors">About</NavLink>
-                  <NavLink to="/gallery" className="text-white hover:text-orange-400 transition-colors">Gallery</NavLink>
-                  <NavLink to="/contact" className="text-white hover:text-orange-400 transition-colors">Contact Us</NavLink>
+                  <NavLink to="/about" className="text-white hover:text-orange-400 transition-colors" onClick={() => window.scrollTo(0, 0)}>About</NavLink>
+                  <NavLink to="/gallery" className="text-white hover:text-orange-400 transition-colors" onClick={() => window.scrollTo(0, 0)}>Gallery</NavLink>
+                  <NavLink to="/contact" className="text-white hover:text-orange-400 transition-colors" onClick={() => window.scrollTo(0, 0)}>Contact Us</NavLink>
                 </nav>
               </div>
             </div>
 
             {/* Right Side - Social Media Icons */}
-            <div className="flex flex-col gap-3.5 flex-shrink-0 items-end pt-0.5">
-              <a href="https://www.facebook.com/profile.php?id=61583022466033" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="bg-orange-400 flex items-center justify-center w-9 h-9 rounded hover:bg-orange-500 transition-colors">
-                <Facebook size={18} className="text-white" />
+            <div className="flex flex-col gap-12 flex-shrink-0 items-end pt-0.5">
+              <a href="https://www.facebook.com/profile.php?id=61583022466033" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-orange-400 hover:text-orange-500 transition-colors">
+                <Facebook size={22} />
               </a>
-              <a href="https://x.com/sklpconcrete" target="_blank" rel="noopener noreferrer" aria-label="X" className="bg-orange-400 flex items-center justify-center w-9 h-9 rounded hover:bg-orange-500 transition-colors">
-                <Twitter size={18} className="text-white" />
+              <a href="https://x.com/sklpconcrete" target="_blank" rel="noopener noreferrer" aria-label="X" className="text-orange-400 hover:text-orange-500 transition-colors">
+                <Twitter size={22} />
               </a>
-              <a href="https://www.instagram.com/sklpconcreteproducts/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="bg-orange-400 flex items-center justify-center w-9 h-9 rounded hover:bg-orange-500 transition-colors">
-                <Instagram size={18} className="text-white" />
+              <a href="https://www.instagram.com/sklpconcreteproducts/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-orange-400 hover:text-orange-500 transition-colors">
+                <Instagram size={22} />
               </a>
-              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="bg-orange-400 flex items-center justify-center w-9 h-9 rounded hover:bg-orange-500 transition-colors">
-                <Linkedin size={18} className="text-white" />
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-orange-400 hover:text-orange-500 transition-colors">
+                <Linkedin size={22} />
               </a>
             </div>
           </div>
@@ -119,18 +119,17 @@ export default function Footer() {
         <div className="mt-6 border-t border-white/20" />
 
         {/* Bottom copyright */}
-        <div className="pt-4 md:text-center text-left">
+        <div className="pt-4 text-center">
           <p className="text-[14px] text-white">
-            © <span className="text-orange-400">2025</span>{' '}
-            <a
+            © SKLP — All rights reserved.<br/>
+            Powered by <a
               href="https://devcreationsblr.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-orange-400 hover:text-orange-300"
             >
               Dev Creations and Solutions
-            </a>{' '}
-            <span className="text-white">All rights reserved.</span>
+            </a>
           </p>
         </div>
       </div>

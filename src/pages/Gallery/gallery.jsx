@@ -13,30 +13,30 @@ export default function Gallery({ companyName = 'SKLP' }) {
         </div>
       </section>
 
-      {/* Gallery Grid */}
-      <section className="gallery-grid">
-        <div className="container">
-          <div className="grid">
-            <div className="grid-item tall">
-              <img src="/assests/4.jpg" alt="Gallery image 4" />
+      {/* Photo Collage */}
+      <section className="photo-collage">
+        <div className="collage-container">
+          <div className="collage-grid">
+            <div className="frame frame-1">
+              <img src="/assests/1.jpg" alt="Construction site 1" />
             </div>
-            <div className="grid-item small">
-              <img src="/assests/2.jpg" alt="Gallery image 2" />
+            <div className="frame frame-2">
+              <img src="/assests/2.jpg" alt="Industrial equipment 2" />
             </div>
-            <div className="grid-item small">
-              <img src="/assests/3.jpg" alt="Gallery image 3" />
+            <div className="frame frame-3">
+              <img src="/assests/3.jpg" alt="Construction work 3" />
             </div>
-            <div className="grid-item tall">
-              <img src="/assests/7.jpg" alt="Gallery image 7" />
+            <div className="frame frame-4">
+              <img src="/assests/4.jpg" alt="Industrial facility 4" />
             </div>
-            <div className="grid-item small">
-              <img src="/assests/5.jpg" alt="Gallery image 5" />
+            <div className="frame frame-5">
+              <img src="/assests/5.jpg" alt="Construction machinery 5" />
             </div>
-            <div className="grid-item small">
-              <img src="/assests/6.jpg" alt="Gallery image 6" />
+            <div className="frame frame-6">
+              <img src="/assests/6.jpg" alt="Industrial process 6" />
             </div>
-            <div className="grid-item tall">
-              <img src="/assests/1.jpg" alt="Gallery image 1" />
+            <div className="frame frame-7">
+              <img src="/assests/7.jpg" alt="Wide industrial view 7" />
             </div>
           </div>
         </div>

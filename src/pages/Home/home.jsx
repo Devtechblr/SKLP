@@ -6,7 +6,7 @@ export default function Home({ companyName = 'SKLP' }) {
   return (
     <div className="min-h-screen bg-white">
       <HomeNavbar />
-      <div className="pt-[96px] md:pt-0">
+      <div className="pt-[120px] md:pt-0">
         {/* Hero Section with Overlay Text */}
         <div className="relative w-full">
           <img 
@@ -15,10 +15,10 @@ export default function Home({ companyName = 'SKLP' }) {
             className="w-full h-auto object-contain block"
           />
           {/* Overlay Text - Lower Left Position */}
-          <div className="absolute inset-0 flex flex-col items-start justify-end pb-8 md:pb-12 lg:pb-16 pl-4 md:pl-8 lg:pl-12 bg-black/20 md:bg-black/10">
+          <div className="absolute inset-0 flex flex-col items-start justify-end pb-6 md:pb-12 lg:pb-16 pl-4 md:pl-8 lg:pl-12 bg-black/30 md:bg-black/10">
             <div className="text-left text-white max-w-2xl md:max-w-3xl">
-              <p className="text-sm md:text-base lg:text-lg mb-2 md:mb-3 font-medium">Welcome to SKLP</p>
-              <h1 className="text-lg md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
+              <p className="text-xs md:text-base lg:text-lg mb-1 md:mb-3 font-medium">Welcome to SKLP</p>
+              <h1 className="text-base md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
                 Supplying fresh, high-quality wet concrete across Bengaluru
               </h1>
             </div>
@@ -26,7 +26,7 @@ export default function Home({ companyName = 'SKLP' }) {
         </div>
 
         {/* About Us Section */}
-        <section className="max-w-7xl mx-auto px-4 py-16 bg-gray-50">
+        <section className="max-w-7xl mx-auto px-4 py-8 md:py-16 bg-gray-50">
           {/* Desktop Layout */}
           <div className="hidden md:grid md:grid-cols-2 gap-12 items-start">
             <div>
@@ -107,7 +107,7 @@ export default function Home({ companyName = 'SKLP' }) {
         </section>
 
         {/* Happy Customers Section */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-8 md:py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8 md:mb-12">Our Happy Customers</h2>
             {/* Desktop: Scrolling logos */}

@@ -11,14 +11,14 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Main nav bar - Dark blue background */}
       <div className="bg-[#1e2a5e] shadow-md">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-3 sm:px-4 py-1 sm:py-2">
           {/* Logo (left) */}
           <NavLink to="/" className="flex items-center" onClick={closeMobile}>
             <div className="flex flex-col items-center justify-center">
               <img 
                 src="/assests/logo.png" 
                 alt="SKLP Logo" 
-                className="h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 object-contain transform scale-[1.02]"
+                className="h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 object-contain"
               />
               {/* SKLP text below logo */}
               <div className="mt-1">
@@ -114,16 +114,16 @@ export default function Navbar() {
       <div
         className={`md:hidden bg-[#1e2a5e] border-t border-white/10 transition-[max-height] overflow-hidden ${isMobileOpen ? 'max-h-96' : 'max-h-0'}`}
       >
-        <nav className="px-4 py-2">
-          <ul className="flex flex-col gap-2 text-white text-sm font-medium uppercase">
+        <nav className="px-4 py-1">
+          <ul className="flex flex-col gap-1 text-white text-sm font-medium uppercase">
             <li>
               <NavLink 
                 to="/" 
                 onClick={closeMobile}
                 className={({isActive}) => 
                   isActive 
-                    ? 'block px-2 py-3 bg-white/10 rounded'
-                    : 'block px-2 py-3 hover:bg-white/10 rounded'
+                    ? 'block px-2 py-2 bg-white/10 rounded'
+                    : 'block px-2 py-2 hover:bg-white/10 rounded'
                 }
               >
                 HOME
@@ -135,8 +135,8 @@ export default function Navbar() {
                 onClick={closeMobile}
                 className={({isActive}) => 
                   isActive 
-                    ? 'block px-2 py-3 bg-white/10 rounded'
-                    : 'block px-2 py-3 hover:bg-white/10 rounded'
+                    ? 'block px-2 py-2 bg-white/10 rounded'
+                    : 'block px-2 py-2 hover:bg-white/10 rounded'
                 }
               >
                 SERVICES
@@ -148,8 +148,8 @@ export default function Navbar() {
                 onClick={closeMobile}
                 className={({isActive}) => 
                   isActive 
-                    ? 'block px-2 py-3 bg-white/10 rounded'
-                    : 'block px-2 py-3 hover:bg-white/10 rounded'
+                    ? 'block px-2 py-2 bg-white/10 rounded'
+                    : 'block px-2 py-2 hover:bg-white/10 rounded'
                 }
               >
                 ABOUT US
@@ -161,8 +161,8 @@ export default function Navbar() {
                 onClick={closeMobile}
                 className={({isActive}) => 
                   isActive 
-                    ? 'block px-2 py-3 bg-white/10 rounded'
-                    : 'block px-2 py-3 hover:bg-white/10 rounded'
+                    ? 'block px-2 py-2 bg-white/10 rounded'
+                    : 'block px-2 py-2 hover:bg-white/10 rounded'
                 }
               >
                 GALLERY
@@ -174,8 +174,8 @@ export default function Navbar() {
                 onClick={closeMobile}
                 className={({isActive}) => 
                   isActive 
-                    ? 'block px-2 py-3 bg-white/10 rounded'
-                    : 'block px-2 py-3 hover:bg-white/10 rounded'
+                    ? 'block px-2 py-2 bg-white/10 rounded'
+                    : 'block px-2 py-2 hover:bg-white/10 rounded'
                 }
               >
                 CONTACT US

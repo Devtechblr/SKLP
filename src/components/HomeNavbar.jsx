@@ -20,7 +20,7 @@ export default function HomeNavbar() {
           {/* Logo (left) */}
           <div className="flex items-center">
             <NavLink to="/" onClick={closeMobile} className="flex items-center">
-              <img src="/assests/logo.png" alt="SKLP Logo" className="w-24 h-24 object-contain"/>
+              <img src="/assests/logo.png" alt="SKLP Logo" className="w-28 h-28 object-contain"/>
             </NavLink>
           </div>
           {/* Badges (center) */}
@@ -97,7 +97,7 @@ export default function HomeNavbar() {
       <div className="hidden md:block relative bg-transparent">
         <div className="max-w-7xl mx-auto flex justify-center">
           <div className="relative -mt-6">
-            <nav className="flex items-center gap-8 lg:gap-10 xl:gap-12 bg-[#1e2a5e] text-white text-sm font-semibold uppercase tracking-wide px-10 lg:px-14 py-5 shadow-[0_18px_35px_rgba(30,42,94,0.25)]">
+            <nav className="flex items-center gap-12 lg:gap-16 xl:gap-20 bg-[#1e2a5e] text-white text-base font-semibold uppercase tracking-wide px-16 lg:px-20 py-10 shadow-[0_18px_35px_rgba(30,42,94,0.25)]">
               <NavLink onClick={closeMobile} className={({isActive}) => isActive ? 'text-orange-400' : 'hover:text-orange-300'} to="/">HOME</NavLink>
               <NavLink onClick={closeMobile} className={({isActive}) => isActive ? 'text-orange-400' : 'hover:text-orange-300'} to="/services">SERVICES</NavLink>
               <NavLink onClick={closeMobile} className={({isActive}) => isActive ? 'text-orange-400' : 'hover:text-orange-300'} to="/about">ABOUT US</NavLink>
