@@ -11,13 +11,14 @@
   display: flex;
   gap: 3rem;
   align-items: center;
-  animation: scroll-horizontal 25s linear infinite;
+  animation: scroll-horizontal 10s linear infinite;
   width: fit-content;
 }
 
 .customer-scroll-inner img {
   width: auto;
-  height: 4rem;
+  height: auto;
+  max-height: 6rem;
   object-fit: contain;
 }
 

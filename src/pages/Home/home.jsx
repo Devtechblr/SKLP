@@ -2,6 +2,26 @@ import React from 'react'
 import './home.css'
 import HomeNavbar from '../../components/HomeNavbar.jsx'
 
+const CUSTOMER_LOGOS = [
+  { src: '/assests/Customers/Bangalore Nirmithi Kendra(Urban).png', alt: 'Bangalore Nirmithi Kendra (Urban)' },
+  { src: '/assests/Customers/bluespring.png', alt: 'Bluespring' },
+  { src: '/assests/Customers/Bruhat_Bengaluru_Mahanagara_Palike.png', alt: 'Bruhat Bengaluru Mahanagara Palike' },
+  { src: '/assests/Customers/core4_engineers_pvt_ltd.png', alt: 'Core4 Engineers Pvt Ltd' },
+  { src: '/assests/Customers/Godrej.png', alt: 'Godrej', size: 'h-20 md:h-24' },
+  { src: '/assests/Customers/GR.png', alt: 'GR' },
+  { src: '/assests/Customers/images.png', alt: 'Images' },
+  { src: '/assests/Customers/Indian_Air_Force.png', alt: 'Indian Air Force' },
+  { src: '/assests/Customers/Karnataka_ind.png', alt: 'Karnataka Industrial' },
+  { src: '/assests/Customers/KEC_International_logo.svg.png', alt: 'KEC International' },
+  { src: '/assests/Customers/kites.png', alt: 'Kites', size: 'h-20 md:h-24' },
+  { src: '/assests/Customers/NCC.png', alt: 'NCC', size: 'h-20 md:h-24' },
+  { src: '/assests/Customers/Pillars.png', alt: 'Pillars', size: 'h-20 md:h-24' },
+  { src: '/assests/Customers/Prestige_Group.svg.png', alt: 'Prestige Group', size: 'h-20 md:h-24' },
+  { src: '/assests/Customers/RK-Builders.png', alt: 'RK Builders' },
+]
+
+const SCROLLING_LOGOS = [...CUSTOMER_LOGOS, ...CUSTOMER_LOGOS]
+
 export default function Home({ companyName = 'SKLP' }) {
   return (
     <div className="min-h-screen bg-white">
@@ -114,31 +134,31 @@ export default function Home({ companyName = 'SKLP' }) {
             <div className="hidden md:block overflow-hidden">
               <div className="customer-scroll">
                 <div className="customer-scroll-inner">
-                  <img src="" alt="Customer 1" className="h-16 grayscale hover:grayscale-0 transition flex-shrink-0" />
-                  <img src="" alt="Customer 2" className="h-16 grayscale hover:grayscale-0 transition flex-shrink-0" />
-                  <img src="" alt="Customer 3" className="h-16 grayscale hover:grayscale-0 transition flex-shrink-0" />
-                  <img src="" alt="Customer 4" className="h-16 grayscale hover:grayscale-0 transition flex-shrink-0" />
-                  <img src="" alt="Customer 5" className="h-16 grayscale hover:grayscale-0 transition flex-shrink-0" />
-                  <img src="" alt="Customer 6" className="h-16 grayscale hover:grayscale-0 transition flex-shrink-0" />
-                  <img src="" alt="Customer 7" className="h-16 grayscale hover:grayscale-0 transition flex-shrink-0" />
-                  <img src="" alt="Customer 8" className="h-16 grayscale hover:grayscale-0 transition flex-shrink-0" />
-                  {/* Duplicate for seamless loop */}
-                  <img src="" alt="Customer 1" className="h-16 grayscale hover:grayscale-0 transition flex-shrink-0" />
-                  <img src="" alt="Customer 2" className="h-16 grayscale hover:grayscale-0 transition flex-shrink-0" />
-                  <img src="" alt="Customer 3" className="h-16 grayscale hover:grayscale-0 transition flex-shrink-0" />
-                  <img src="" alt="Customer 4" className="h-16 grayscale hover:grayscale-0 transition flex-shrink-0" />
-                  <img src="" alt="Customer 5" className="h-16 grayscale hover:grayscale-0 transition flex-shrink-0" />
-                  <img src="" alt="Customer 6" className="h-16 grayscale hover:grayscale-0 transition flex-shrink-0" />
-                  <img src="" alt="Customer 7" className="h-16 grayscale hover:grayscale-0 transition flex-shrink-0" />
-                  <img src="" alt="Customer 8" className="h-16 grayscale hover:grayscale-0 transition flex-shrink-0" />
+                  {SCROLLING_LOGOS.map((logo, index) => (
+                    <img
+                      key={`${logo.alt}-${index}`}
+                      src={logo.src}
+                      alt={logo.alt}
+                      className={`grayscale hover:grayscale-0 transition flex-shrink-0 ${logo.size ?? 'h-16 md:h-20'}`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
-            {/* Mobile: 3 static logos centered */}
-            <div className="md:hidden flex justify-center items-center gap-6 flex-wrap">
-              <img src="" alt="Customer 1" className="h-12 grayscale object-contain" />
-              <img src="" alt="Customer 2" className="h-12 grayscale object-contain" />
-              <img src="" alt="Customer 3" className="h-12 grayscale object-contain" />
+            {/* Mobile: Scrolling logos */}
+            <div className="md:hidden overflow-hidden">
+              <div className="customer-scroll">
+                <div className="customer-scroll-inner">
+                  {SCROLLING_LOGOS.map((logo, index) => (
+                    <img
+                      key={`mobile-${logo.alt}-${index}`}
+                      src={logo.src}
+                      alt={logo.alt}
+                      className={`grayscale hover:grayscale-0 transition flex-shrink-0 ${logo.size ?? 'h-14'}`}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -146,5 +166,3 @@ export default function Home({ companyName = 'SKLP' }) {
     </div>
   )
 }
-
-
