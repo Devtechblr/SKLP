@@ -109,7 +109,7 @@ const About = (props) => {
             position: relative;
             display: flex;
             align-items: stretch;
-            margin-top: 80px;
+            padding-top: 120px;
             padding-bottom: 0;
           }
           .hero-content {
@@ -332,7 +332,7 @@ const About = (props) => {
             .hero-section {
               padding: 0;
               min-height: auto;
-              margin-top: 72px;
+              padding-top: 120px;
               flex-direction: column;
             }
             .hero-content {

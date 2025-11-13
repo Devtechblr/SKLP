@@ -20,7 +20,7 @@ body {
 
 /* Hero Section */
 .hero {
-  margin-top: 0;
+  padding-top: 120px;
   height: 400px;
   background-image: none;
   background-color: #1a237e;
@@ -207,6 +207,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding-top: 120px;
+  }
+  
   .hero h1 {
     font-size: 48px;
     letter-spacing: 6px;

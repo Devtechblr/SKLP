@@ -9,10 +9,12 @@ import Terms from './pages/Terms/terms.jsx'
 import Privacy from './pages/Privacy/privacy.jsx'
 import Support from './pages/Support/support.jsx'
 import Footer from './components/Footer.jsx'
+import ScrollToTop from './components/ScrollToTop.jsx'
 
 export default function App() {
   return (
     <div className="min-h-screen bg-white">
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />

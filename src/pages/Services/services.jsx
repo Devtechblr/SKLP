@@ -9,7 +9,7 @@ const Services = ({ companyName = "SKLP" }) => {
       <Navbar />
 
       {/* Hero Section */}
-      <div className="relative mt-16 md:mt-0 w-full min-h-[400px] md:min-h-0">
+      <div className="relative pt-[120px] md:pt-0 w-full min-h-[400px] md:min-h-0">
         <img
           src="/assests/services_hero.jpg"
           alt="Ready Mixed Concrete services hero"

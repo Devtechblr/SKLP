@@ -23,6 +23,7 @@ const CUSTOMER_LOGOS = [
 const SCROLLING_LOGOS = [...CUSTOMER_LOGOS, ...CUSTOMER_LOGOS]
 
 export default function Home({ companyName = 'SKLP' }) {
+
   return (
     <div className="min-h-screen bg-white">
       <HomeNavbar />

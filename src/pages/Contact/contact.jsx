@@ -7,12 +7,12 @@ export default function Contact({
   companyName = 'SKLP',
   phone = '+91 9900075805',
   address = 'Sy No. 105, Bagalur Post, Byappanahaili North Taluk, Bengaluru, Karnataka - 562149',
-  email = 'Mr. Nataraj D.K. Gowda'
+  email = 'nataraj@sklpconcrete.com'
 }) {
   return (
     <div className="contact-page">
       <Navbar />
-      <div className="pt-0">
+      <div className="pt-[120px] md:pt-0">
 
       {/* Map Section */}
       <div className="map-section">
