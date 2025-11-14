@@ -2,11 +2,18 @@ import React from 'react';
 import { Truck, Award, Headphones, Facebook, Twitter, Instagram, Linkedin, Phone, Mail } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import Navbar from '../../components/Navbar.jsx';
+import SEO from '../../components/SEO.jsx';
 
 const Services = ({ companyName = "SKLP" }) => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title="SKLP Services - Ready Mix Concrete & Construction Solutions | Bengaluru"
+        description="SKLP offers ready-mix concrete services, custom concrete mixes, on-time delivery, and quality assurance. Grades M7.5 to M60 available with 24/7 operations in Karnataka."
+        keywords="ready mix concrete services, RMC Bengaluru, concrete delivery Karnataka, custom concrete mixes, M7.5 to M60 concrete grades, construction materials"
+        url="https://sklpconcrete.com/services"
+      />
       <Navbar />
 
       {/* Hero Section */}

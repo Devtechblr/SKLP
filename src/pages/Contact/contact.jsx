@@ -2,6 +2,7 @@ import React from 'react'
 import { Phone, Home } from 'lucide-react'
 import './contact.css'
 import Navbar from '../../components/Navbar.jsx'
+import SEO from '../../components/SEO.jsx'
 
 export default function Contact({ 
   companyName = 'SKLP',
@@ -11,6 +12,12 @@ export default function Contact({
 }) {
   return (
     <div className="contact-page">
+      <SEO 
+        title="Contact SKLP - Get Quote for Concrete Products | Bengaluru"
+        description="Contact SKLP for quality concrete products and construction solutions in Bengaluru. Call +91 9900075805 or visit our plant at Bagalur Post for quotes and inquiries."
+        keywords="contact SKLP, concrete quote Bengaluru, ready-mix concrete inquiry, construction materials contact, SKLP phone number"
+        url="https://sklpconcrete.com/contact"
+      />
       <Navbar />
       <div className="pt-[120px] md:pt-0">
 

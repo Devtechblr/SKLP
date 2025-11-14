@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './home.css'
 import HomeNavbar from '../../components/HomeNavbar.jsx'
+import SEO from '../../components/SEO.jsx'
 
 const CUSTOMER_LOGOS = [
   { src: '/assests/Customers/Bangalore Nirmithi Kendra(Urban).png', alt: 'Bangalore Nirmithi Kendra (Urban)' },
@@ -27,6 +28,11 @@ export default function Home({ companyName = 'SKLP' }) {
 
   return (
     <div className="min-h-screen bg-white relative">
+      <SEO 
+        title="SKLP - Quality Concrete Products | Bengaluru"
+        description="Leading concrete products manufacturer in Bengaluru. Quality concrete solutions, ready-mix concrete, and construction materials for all your construction needs."
+        keywords="concrete, ready-mix concrete, construction materials, Bengaluru, Karnataka, SKLP, concrete products, wet concrete, construction solutions"
+      />
       <HomeNavbar />
       <div className="pt-[120px] md:pt-0">
         {/* Hero Section with Overlay Text */}

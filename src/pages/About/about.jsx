@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Navbar from '../../components/Navbar.jsx';
+import SEO from '../../components/SEO.jsx';
 // Use files from the public folder via absolute paths
 
 const About = (props) => {
@@ -8,6 +9,12 @@ const About = (props) => {
 
   return (
     <div className="landing-page">
+      <SEO 
+        title="About SKLP - Leading Concrete Products Manufacturer | Bengaluru"
+        description="Learn about SKLP, a fast-growing construction solutions company in Bengaluru. Founded in 2024, we deliver quality concrete products with ISO certification and state-of-the-art facilities."
+        keywords="SKLP about, concrete manufacturer Bengaluru, construction solutions Karnataka, ISO certified concrete, ready-mix concrete company"
+        url="https://sklpconcrete.com/about"
+      />
       <Navbar />
       {/* Hero Section */}
       <section className="hero-section">

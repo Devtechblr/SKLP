@@ -1,10 +1,17 @@
 import React from 'react'
 import './gallery.css'
 import Navbar from '../../components/Navbar.jsx'
+import SEO from '../../components/SEO.jsx'
 
 export default function Gallery({ companyName = 'SKLP' }) {
   return (
     <div className="gallery-page">
+      <SEO 
+        title="SKLP Gallery - Construction Projects & Facilities | Bengaluru"
+        description="View SKLP's gallery showcasing our concrete production facilities, construction projects, and industrial equipment. See our state-of-the-art plant and successful project deliveries."
+        keywords="SKLP gallery, concrete plant photos, construction projects Bengaluru, industrial facilities, concrete production, project showcase"
+        url="https://sklpconcrete.com/gallery"
+      />
       <Navbar />
       {/* Hero Section */}
       <section className="hero" style={{ backgroundImage: `url('/assests/cement.png')` }}>
