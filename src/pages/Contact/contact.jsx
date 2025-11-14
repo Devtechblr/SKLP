@@ -71,6 +71,11 @@ export default function Contact({
               <textarea rows={4} placeholder=""></textarea>
             </div>
             
+            <div className="form-group">
+              <label>Reason</label>
+              <textarea rows={3} placeholder=""></textarea>
+            </div>
+            
             <button type="submit" className="submit-btn">GET IN TOUCH</button>
           </form>
         </div>
