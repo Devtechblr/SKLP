@@ -19,7 +19,7 @@ export default function Footer() {
           </div>
 
           {/* Center: Links and Socials */}
-          <div className="col-span-4 flex flex-col items-center gap-6">
+          <div className="col-span-4 flex flex-col items-center gap-12">
             <nav className="flex items-center gap-16 text-[14px]">
               <NavLink to="/about" className="hover:text-orange-400" onClick={() => window.scrollTo(0, 0)}>About</NavLink>
               <NavLink to="/gallery" className="hover:text-orange-400" onClick={() => window.scrollTo(0, 0)}>Gallery</NavLink>
@@ -42,7 +42,7 @@ export default function Footer() {
           </div>
 
           {/* Right: Contact */}
-          <div className="col-span-4 flex flex-col items-end gap-4 text-right">
+          <div className="col-span-4 flex flex-col items-start gap-6 ml-[40%]">
             <div className="flex items-center gap-3 text-[14px]">
               <span className="text-orange-400 w-[18px] flex justify-center"><Phone size={18} /></span>
               <span className="text-white">+91 9900075805</span>
@@ -98,7 +98,7 @@ export default function Footer() {
             </div>
 
             {/* Right Side - Social Media Icons */}
-            <div className="flex flex-col gap-12 flex-shrink-0 items-end pt-0.5">
+            <div className="flex flex-col gap-16 flex-shrink-0 items-end pt-0.5">
               <a href="https://www.facebook.com/profile.php?id=61583022466033" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-orange-400 hover:text-orange-500 transition-colors">
                 <Facebook size={22} />
               </a>
