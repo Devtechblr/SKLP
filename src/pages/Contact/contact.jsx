@@ -41,10 +41,12 @@ export default function Contact({
           
           <div className="contact-info">
             <div className="info-item">
-              <Phone className="icon" />
+              <a href={`tel:${phone}`} className="icon" style={{ color: '#ff8c00', textDecoration: 'none' }}>
+                <Phone className="icon" />
+              </a>
               <div>
                 <p className="label">CALL US</p>
-                <p className="value">{phone}</p>
+                <a href={`tel:${phone}`} className="value" style={{ color: '#333', textDecoration: 'none' }}>{phone}</a>
               </div>
             </div>
 

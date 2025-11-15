@@ -43,10 +43,10 @@ export default function Footer() {
 
           {/* Right: Contact */}
           <div className="col-span-4 flex flex-col items-start gap-6 ml-[40%]">
-            <div className="flex items-center gap-3 text-[14px]">
+            <a href="tel:+919900075805" className="flex items-center gap-3 text-[14px] hover:text-orange-300 transition-colors" style={{ textDecoration: 'none' }}>
               <span className="text-orange-400 w-[18px] flex justify-center"><Phone size={18} /></span>
               <span className="text-white">+91 9900075805</span>
-            </div>
+            </a>
             <div className="flex items-center gap-3 text-[14px]">
               <span className="text-orange-400 w-[18px] flex justify-center"><Mail size={18} /></span>
               <span className="text-white">nataraj@sklpconcrete.com</span>
@@ -58,12 +58,12 @@ export default function Footer() {
         <div className="md:hidden relative">
           {/* Contact Information (Top) */}
           <div className="flex flex-col gap-4 mb-6">
-            <div className="flex items-center gap-3 text-[14px]">
+            <a href="tel:+919900075805" className="flex items-center gap-3 text-[14px] hover:text-orange-300 transition-colors" style={{ textDecoration: 'none' }}>
               <div className="bg-orange-400 rounded-full p-2 flex-shrink-0 w-8 h-8 flex items-center justify-center">
                 <Phone size={16} className="text-white" />
               </div>
               <span className="text-white">+91 9900075805</span>
-            </div>
+            </a>
             <div className="flex items-center gap-3 text-[14px]">
               <div className="bg-orange-400 rounded-full p-2 flex-shrink-0 w-8 h-8 flex items-center justify-center">
                 <Mail size={16} className="text-white" />
