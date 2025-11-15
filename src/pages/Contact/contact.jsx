@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Phone, Home } from 'lucide-react'
 import './contact.css'
 import Navbar from '../../components/Navbar.jsx'
@@ -10,6 +10,28 @@ export default function Contact({
   address = 'Sy No. 105, Bagalur Post, Byappanahaili North Taluk, Bengaluru, Karnataka - 562149',
   email = 'nataraj@sklpconcrete.com'
 }) {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    address: '',
+    reason: ''
+  })
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const subject = `Contact Form Submission from ${formData.fullName}`
+    const body = `Name: ${formData.fullName}%0D%0AEmail: ${formData.email}%0D%0AAddress: ${formData.address}%0D%0AReason: ${formData.reason}`
+    const mailtoLink = `mailto:nataraj@sklpconcrete.com?subject=${encodeURIComponent(subject)}&body=${body}`
+    window.location.href = mailtoLink
+  }
+
   return (
     <div className="contact-page">
       <SEO 
@@ -64,25 +86,53 @@ export default function Contact({
           <h1 className="mobile-title">Contact us</h1>
           <p className="form-subtitle">Get in touch with us for any enquiries and questions</p>
           
-          <form className="contact-form">
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label>Full Name</label>
-              <input type="text" placeholder="" />
+              <input 
+                type="text" 
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleInputChange}
+                required 
+                placeholder="" 
+              />
             </div>
             
             <div className="form-group">
               <label>Email</label>
-              <input type="email" placeholder="" />
+              <input 
+                type="email" 
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required 
+                placeholder="" 
+              />
             </div>
             
             <div className="form-group">
               <label>Address</label>
-              <textarea rows={4} placeholder=""></textarea>
+              <textarea 
+                rows={4} 
+                name="address"
+                value={formData.address}
+                onChange={handleInputChange}
+                required 
+                placeholder=""
+              ></textarea>
             </div>
             
             <div className="form-group">
               <label>Reason</label>
-              <textarea rows={3} placeholder=""></textarea>
+              <textarea 
+                rows={3} 
+                name="reason"
+                value={formData.reason}
+                onChange={handleInputChange}
+                required 
+                placeholder=""
+              ></textarea>
             </div>
             
             <button type="submit" className="submit-btn">GET IN TOUCH</button>
