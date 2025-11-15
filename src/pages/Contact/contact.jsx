@@ -24,34 +24,24 @@ export default function Contact({
     })
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     
-    try {
-      const response = await fetch('https://formspree.io/f/xdkogkvo', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          name: formData.fullName,
-          email: formData.email,
-          address: formData.address,
-          reason: formData.reason,
-          _replyto: formData.email,
-          _subject: `Contact Form Submission from ${formData.fullName}`
-        })
-      })
-      
-      if (response.ok) {
-        alert('Message sent successfully!')
-        setFormData({ fullName: '', email: '', address: '', reason: '' })
-      } else {
-        alert('Failed to send message. Please try again.')
-      }
-    } catch (error) {
-      alert('Error sending message. Please try again.')
-    }
+    // Create email content
+    const subject = `Contact Form - ${formData.fullName}`
+    const body = `Name: ${formData.fullName}\n\nEmail: ${formData.email}\n\nAddress: ${formData.address}\n\nReason: ${formData.reason}`
+    
+    // Create mailto link
+    const mailtoLink = `mailto:nataraj@sklpconcrete.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    
+    // Open email client
+    window.open(mailtoLink, '_self')
+    
+    // Show success message and clear form
+    setTimeout(() => {
+      alert('Email client opened! Please send the email to complete your inquiry.')
+      setFormData({ fullName: '', email: '', address: '', reason: '' })
+    }, 100)
   }
 
   return (
