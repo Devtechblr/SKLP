@@ -16,9 +16,9 @@ export default function Navbar() {
           <NavLink to="/" className="flex items-center" onClick={closeMobile}>
             <div className="flex flex-col items-center justify-center">
               <img 
-                src="/assests/logo.png" 
+                src="/assests/logo2.png" 
                 alt="SKLP Logo" 
-                className="h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 object-contain"
+                className="h-full w-auto object-contain max-h-14 md:max-h-16"
               />
               {/* SKLP text below logo */}
               <div className="mt-1">

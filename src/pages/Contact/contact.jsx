@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Phone, Home } from 'lucide-react'
+import { Phone, Home, Mail } from 'lucide-react'
 import './contact.css'
 import Navbar from '../../components/Navbar.jsx'
 import SEO from '../../components/SEO.jsx'
@@ -17,6 +17,12 @@ export default function Contact({
     reason: ''
   })
 
+  const handleEmailClick = (e) => {
+    e.preventDefault()
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=Inquiry%20from%20SKLP%20Website&body=Hello%20SKLP%20Team,%0A%0A`
+    window.open(gmailUrl, '_blank')
+  }
+
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
@@ -29,17 +35,15 @@ export default function Contact({
     
     // Create email content
     const subject = `Contact Form - ${formData.fullName}`
-    const body = `Name: ${formData.fullName}\n\nEmail: ${formData.email}\n\nAddress: ${formData.address}\n\nReason: ${formData.reason}`
+    const body = `Name: ${formData.fullName}%0A%0AEmail: ${formData.email}%0A%0AAddress: ${formData.address}%0A%0AReason: ${formData.reason}`
     
-    // Create mailto link
-    const mailtoLink = `mailto:nataraj@sklpconcrete.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    
-    // Open email client
-    window.open(mailtoLink, '_self')
+    // Open Gmail
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${body}`
+    window.open(gmailUrl, '_blank')
     
     // Show success message and clear form
     setTimeout(() => {
-      alert('Email client opened! Please send the email to complete your inquiry.')
+      alert('Gmail opened! Please send the email to complete your inquiry.')
       setFormData({ fullName: '', email: '', address: '', reason: '' })
     }, 100)
   }
@@ -81,6 +85,16 @@ export default function Contact({
               <div>
                 <p className="label">CALL US</p>
                 <a href={`tel:${phone}`} className="value" style={{ color: '#333', textDecoration: 'none' }}>{phone}</a>
+              </div>
+            </div>
+
+            <div className="info-item">
+              <a href="#" onClick={handleEmailClick} className="icon" style={{ color: '#ff8c00', textDecoration: 'none' }}>
+                <Mail className="icon" />
+              </a>
+              <div>
+                <p className="label">EMAIL US</p>
+                <a href="#" onClick={handleEmailClick} className="value" style={{ color: '#333', textDecoration: 'none', cursor: 'pointer' }}>{email}</a>
               </div>
             </div>
 

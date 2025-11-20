@@ -229,6 +229,31 @@ body {
   text-decoration: none;
 }
 
+/* Scroll Animation */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.scroll-animate.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation for gallery frames */
+.frame.scroll-animate {
+  transition-delay: 0s;
+}
+
+.frame.scroll-animate:nth-child(1) { transition-delay: 0.1s; }
+.frame.scroll-animate:nth-child(2) { transition-delay: 0.2s; }
+.frame.scroll-animate:nth-child(3) { transition-delay: 0.3s; }
+.frame.scroll-animate:nth-child(4) { transition-delay: 0.4s; }
+.frame.scroll-animate:nth-child(5) { transition-delay: 0.5s; }
+.frame.scroll-animate:nth-child(6) { transition-delay: 0.6s; }
+.frame.scroll-animate:nth-child(7) { transition-delay: 0.7s; }
+
 @media (max-width: 768px) {
   .hero {
     padding-top: 120px;

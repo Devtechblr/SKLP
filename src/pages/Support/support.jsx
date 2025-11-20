@@ -32,7 +32,11 @@ export default function Support() {
               <div className="contact-card">
                 <Mail size={32} className="icon" />
                 <h3>Email Contact</h3>
-                <p><strong>Mr.Mataraj S.K. Gowda</strong></p>
+                <p>
+                  <a href="mailto:nataraj@sklpconcrete.com" className="text-orange-500 hover:underline font-semibold">
+                    nataraj@sklpconcrete.com
+                  </a>
+                </p>
                 <p>For detailed inquiries and documentation</p>
               </div>
               <div className="contact-card">

@@ -2,7 +2,22 @@ import React from 'react'
 import { Phone, Mail, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react'
 import { Link, NavLink } from 'react-router-dom'
 
+const MAILTO_LINK = 'mailto:nataraj@sklpconcrete.com?subject=Inquiry%20from%20SKLP%20Website&body=Hello%20SKLP%20Team,%0A%0A'
+const EMAIL = 'nataraj@sklpconcrete.com'
+
 export default function Footer() {
+  const handleEmailClick = (e) => {
+    e.preventDefault()
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}&su=Inquiry%20from%20SKLP%20Website&body=Hello%20SKLP%20Team,%0A%0A`
+    window.open(gmailUrl, '_blank')
+  }
+
+  const handleLocationClick = () => {
+    const address = 'Sy No. 105, Bagalur Post, Byappanahalli North Taluk, Bengaluru, Karnataka - 562149'
+    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`
+    window.open(mapsUrl, '_blank')
+  }
+
   return (
     <footer className="bg-[#1e2a5e] text-white py-10 w-full">
       <div className="w-full px-6">
@@ -11,7 +26,10 @@ export default function Footer() {
           {/* Left: Plant Location */}
           <div className="col-span-4 mb-8 md:mb-0">
             <h3 className="font-semibold text-[24px] leading-tight mb-3">Plant Location</h3>
-            <p className="text-[14px] leading-6 text-gray-300 max-w-sm">
+            <p 
+              onClick={handleLocationClick}
+              className="text-[14px] leading-6 text-gray-300 max-w-sm cursor-pointer hover:text-orange-300 transition-colors"
+            >
               Sy No. 105, Bagalur Post,<br />
               Byappanahalli North Taluk,<br />
               Bengaluru, Karnataka - 562149
@@ -47,10 +65,15 @@ export default function Footer() {
               <span className="text-orange-400 w-[18px] flex justify-center"><Phone size={18} /></span>
               <span className="text-white">+91 9900075805</span>
             </a>
-            <div className="flex items-center gap-3 text-[14px]">
+            <a
+              href="#"
+              onClick={handleEmailClick}
+              className="flex items-center gap-3 text-[14px] hover:text-orange-300 transition-colors cursor-pointer"
+              style={{ textDecoration: 'none' }}
+            >
               <span className="text-orange-400 w-[18px] flex justify-center"><Mail size={18} /></span>
               <span className="text-white">nataraj@sklpconcrete.com</span>
-            </div>
+            </a>
           </div>
         </div>
 
@@ -64,12 +87,17 @@ export default function Footer() {
               </div>
               <span className="text-white">+91 9900075805</span>
             </a>
-            <div className="flex items-center gap-3 text-[14px]">
+            <a
+              href="#"
+              onClick={handleEmailClick}
+              className="flex items-center gap-3 text-[14px] hover:text-orange-300 transition-colors cursor-pointer"
+              style={{ textDecoration: 'none' }}
+            >
               <div className="bg-orange-400 rounded-full p-2 flex-shrink-0 w-8 h-8 flex items-center justify-center">
                 <Mail size={16} className="text-white" />
               </div>
-              <span className="text-white">Mr. Nataraj D.K. Gowda</span>
-            </div>
+              <span className="text-white">nataraj@sklpconcrete.com</span>
+            </a>
           </div>
 
           {/* Main Content with Social Icons on Right */}
@@ -79,7 +107,10 @@ export default function Footer() {
               {/* Plant Location */}
               <div className="mb-6">
                 <h3 className="font-bold text-[20px] leading-tight mb-3 text-white">Plant Location</h3>
-                <p className="text-[14px] leading-6 text-white">
+                <p 
+                  onClick={handleLocationClick}
+                  className="text-[14px] leading-6 text-white cursor-pointer hover:text-orange-400 transition-colors"
+                >
                   Sy No. 105, Bagalur Post,<br />
                   Byappanahalli North Taluk,<br />
                   Bengaluru, Karnataka - 562149
@@ -120,16 +151,19 @@ export default function Footer() {
 
         {/* Bottom copyright */}
         <div className="pt-4 text-center">
-          <p className="text-[14px] text-white">
-            © SKLP — All rights reserved.<br/>
-            Powered by <a
-              href="https://devcreationsblr.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-orange-400 hover:text-orange-300"
-            >
-              Dev Creations and Solutions
-            </a>
+          <p className="text-[14px] text-white flex flex-col md:flex-row md:items-center md:justify-center gap-1 md:gap-2">
+            <span>© SKLP — All rights reserved.</span>
+            <span>
+              Powered by{' '}
+              <a
+                href="https://devcreationsblr.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-orange-400 hover:text-orange-300"
+              >
+                Dev Creations and Solutions
+              </a>
+            </span>
           </p>
         </div>
       </div>

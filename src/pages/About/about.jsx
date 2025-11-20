@@ -18,32 +18,32 @@ const About = (props) => {
       <Navbar />
       {/* Hero Section */}
       <section className="hero-section">
-        <div className="hero-content">
+        <div className="hero-content" data-reveal="up">
           <div className="hero-text">
             <h1>{companyName} is a fast-growing construction solutions company based in Bengaluru, Karnataka.</h1>
             <p>Founded in May 2020 with 301 dedicated members, a 4-acre state-of-the-art plant, and a fleet of vehicles on SKLP has become a quality-driven, top-tier infrastructure solutions across Karnataka.</p>
             <NavLink to="/contact" className="cta-button shadow-[0_0_15px_rgba(249,115,22,0.5)]">REQUEST QUOTE</NavLink>
           </div>
         </div>
-        <div className="hero-image">
+        <div className="hero-image" data-reveal="down">
           <img src="/assests/aboutus.png" alt="Construction worker" />
         </div>
       </section>
 
       {/* Vision Mission Section */}
       <section className="vision-mission-section">
-        <div className="vision-box">
+        <div className="vision-box" data-reveal="up">
           <h2>OUR VISION</h2>
           <p>To be the leading and most trusted partner in infrastructure development across Karnataka — delivering excellence in complex projects with speed and quality.</p>
         </div>
-        <div className="mission-box">
+        <div className="mission-box" data-reveal="down">
           <h2>OUR MISSION</h2>
           <p>To provide reliable, high-quality construction services using modern technology, robust infrastructure, and expert teams — ensuring on-time delivery and complete customer satisfaction.</p>
         </div>
       </section>
 
       {/* Company Description */}
-      <section className="description-section">
+      <section className="description-section" data-reveal="up">
         <p>Founded in May 2024, SKLP Concrete Products is one of Karnataka's fastest-growing construction material companies, built on a foundation of quality, reliability, and rapid execution. Headquartered in Bengaluru, SKLP operates with a vision to be the most trusted name in infrastructure solutions across the state.</p>
         <p>Within less than a year, SKLP has achieved a remarkable growth trajectory — completing 5,000+ projects, serving over 2,500 satisfied customers, and earning the trust of high-profile clients such as the Indian Air Force, BBMP, KIADB, and Railway Projects.</p>
         <p>Our operations are supported by a 4-acre state-of-the-art batching plant with a production capacity of 75 m³ per hour, powered by German machinery, and a dedicated logistics fleet of 94 vehicles. With a team workforce of 30+ skilled professionals, SKLP ensures precision, speed, and consistency in every project we undertake.</p>
@@ -52,17 +52,8 @@ const About = (props) => {
       {/* Certifications */}
       <section className="certifications-section">
         <h3>Our Certification</h3>
-        <div className="cert-grid">
-          <div className="cert-item">
-            <div className="cert-badge">
-              <div className="iso-circle">ISO</div>
-            </div>
-            <div className="cert-text">
-              <h4>9001</h4>
-              <p>Quality Management System</p>
-              <span>Certificate No: 12345</span>
-            </div>
-          </div>
+        <div className="certification-image">
+          <img src="/assests/certification1png.png" alt="SKLP Certification" />
         </div>
       </section>
 
@@ -95,7 +86,7 @@ const About = (props) => {
       </section>
 
       {/* CTA Button */}
-      <section className="cta-section">
+      <section className="cta-section" data-reveal="up">
         <NavLink to="/contact" className="cta-button shadow-[0_0_15px_rgba(249,115,22,0.5)]">REQUEST QUOTE</NavLink>
       </section>
 
@@ -245,7 +236,7 @@ const About = (props) => {
             line-height: 1.8;
             color: #444;
             margin-bottom: 20px;
-            font-weight: 700;
+            font-weight: 400;
           }
           .certifications-section {
             background: white;
@@ -254,9 +245,25 @@ const About = (props) => {
           }
           .certifications-section h3 {
             color: #ff8c00;
-            font-size: 18px;
+            font-size: 22px;
             margin-bottom: 40px;
             font-weight: bold;
+            background: white;
+            padding: 8px 24px;
+            border-radius: 30px;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          }
+          .certification-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .certification-image img {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
           }
           .cert-grid {
             display: flex;

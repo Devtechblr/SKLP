@@ -106,7 +106,7 @@ export default function HomeNavbar() {
       <div className={`hidden md:block ${isScrolled ? 'fixed top-0 left-0 right-0' : 'relative'} bg-transparent z-40`}>
         <div className="max-w-7xl mx-auto flex justify-center">
           <div className={`relative ${!isScrolled ? '-mt-6' : ''}`}>
-            <nav className="flex items-center gap-12 lg:gap-16 xl:gap-20 bg-[#1e2a5e] text-white text-base font-semibold uppercase tracking-wide px-16 lg:px-20 py-10 shadow-[0_18px_35px_rgba(30,42,94,0.25)]">
+            <nav className="flex items-center gap-12 lg:gap-16 xl:gap-20 bg-[#1e2a5e] text-white text-base font-medium uppercase tracking-wide px-16 lg:px-20 py-10 shadow-[0_18px_35px_rgba(30,42,94,0.25)]">
               <NavLink onClick={closeMobile} className={({isActive}) => isActive ? 'text-orange-400' : 'hover:text-orange-300'} to="/">HOME</NavLink>
               <NavLink onClick={closeMobile} className={({isActive}) => isActive ? 'text-orange-400' : 'hover:text-orange-300'} to="/services">SERVICES</NavLink>
               <NavLink onClick={closeMobile} className={({isActive}) => isActive ? 'text-orange-400' : 'hover:text-orange-300'} to="/about">ABOUT US</NavLink>
@@ -120,7 +120,7 @@ export default function HomeNavbar() {
       {/* Mobile drawer */}
       <div className={`md:hidden bg-[#1e2a5e] border-t border-white/10 transition-[max-height] overflow-hidden ${isMobileOpen ? 'max-h-96' : 'max-h-0'}`}>
         <nav className="px-4 py-2">
-          <ul className="flex flex-col gap-1 text-white text-sm font-medium uppercase">
+          <ul className="flex flex-col gap-1 text-white text-sm font-normal uppercase">
             <li><NavLink onClick={closeMobile} className={({isActive}) => isActive ? 'block px-2 py-3 bg-white/10 rounded' : 'block px-2 py-3 hover:bg-white/10 rounded'} to="/">HOME</NavLink></li>
             <li><NavLink onClick={closeMobile} className={({isActive}) => isActive ? 'block px-2 py-3 bg-white/10 rounded' : 'block px-2 py-3 hover:bg-white/10 rounded'} to="/services">SERVICES</NavLink></li>
             <li><NavLink onClick={closeMobile} className={({isActive}) => isActive ? 'block px-2 py-3 bg-white/10 rounded' : 'block px-2 py-3 hover:bg-white/10 rounded'} to="/about">ABOUT US</NavLink></li>

@@ -1,10 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Truck, Award, Headphones, Facebook, Twitter, Instagram, Linkedin, Phone, Mail } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import Navbar from '../../components/Navbar.jsx';
 import SEO from '../../components/SEO.jsx';
 
 const Services = ({ companyName = "SKLP" }) => {
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+
+    const animateElements = document.querySelectorAll('.scroll-animate');
+    animateElements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -36,7 +55,7 @@ const Services = ({ companyName = "SKLP" }) => {
       </div>
 
       {/* Icon Features */}
-      <div className="max-w-7xl mx-auto py-8 md:py-16 px-4 md:px-8">
+      <div className="max-w-7xl mx-auto py-6 md:py-12 px-4 md:px-8 scroll-animate">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 text-center">
           <div className="flex flex-col items-center">
             <Truck className="w-16 h-16 text-orange-500 mb-4" strokeWidth={1.5} />
@@ -54,7 +73,7 @@ const Services = ({ companyName = "SKLP" }) => {
       </div>
 
       {/* Services Section (cards with background image) */}
-      <div className="bg-white py-8 md:py-16 px-0">
+      <div className="bg-white px-0 -mt-4 md:-mt-6 pt-4 md:pt-6 pb-10 md:pb-16 scroll-animate">
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-0">
           <div className="relative h-[28.8rem] overflow-hidden">
             <div
@@ -63,7 +82,7 @@ const Services = ({ companyName = "SKLP" }) => {
             />
             <div className="relative z-10 text-white p-6 flex flex-col items-center text-center">
               <h3 className="text-xl font-bold mb-4 text-orange-400">Ready Mix Supply</h3>
-              <ul className="space-y-2 text-base text-left">
+              <ul className="space-y-2 text-left text-[0.78rem] md:text-[0.9rem]">
                 <li>• We manufacture and supply Ready Mix Concrete (RMC) in grades ranging from M7.5 to M60, tailored to meet diverse project requirements – from residential works to heavy infrastructure</li>
                 <li>• Minimum volume is 1.5 M3/S and 18 M3/S maximum</li>
                 <li>• In-house testing for slump, compressive strength, and cube results</li>
@@ -80,7 +99,7 @@ const Services = ({ companyName = "SKLP" }) => {
             />
             <div className="relative z-10 text-white p-6 flex flex-col items-center text-center">
               <h3 className="text-xl font-bold mb-4 text-orange-400">Custom Concrete</h3>
-              <ul className="space-y-2 text-base text-left">
+              <ul className="space-y-2 text-left text-[0.78rem] md:text-[0.9rem]">
                 <li>• We provide specialized concrete mixes tailored to match the structural and environmental needs of each project.</li>
                 <li>• Self-Compacting Concrete</li>
                 <li>• High-Strength Design Mixes (up to M60)</li>
@@ -98,7 +117,7 @@ const Services = ({ companyName = "SKLP" }) => {
             />
             <div className="relative z-10 text-white p-6 flex flex-col items-center text-center">
               <h3 className="text-xl font-bold mb-4 text-orange-400">Logistics & On-Time Delivery</h3>
-              <ul className="space-y-2 text-base text-left">
+              <ul className="space-y-2 text-left text-[0.78rem] md:text-[0.9rem]">
                 <li>• Our in-house fleet of 10+ vehicles and dedicated logistics team ensure timely delivery to construction and infrastructure sites across Karnataka</li>
                 <li>• 2-hour dispatch guarantee for scheduled orders</li>
                 <li>• 24/7 operations for urgent and night-shift requirements</li>
@@ -114,8 +133,8 @@ const Services = ({ companyName = "SKLP" }) => {
               style={{ backgroundImage: "url('/assests/Card.png')" }}
             />
             <div className="relative z-10 text-white p-6 flex flex-col items-center text-center">
-              <h3 className="text-xl font-bold mb-4 text-orange-400">Quick Service & Quality Assurance</h3>
-              <ul className="space-y-2 text-base text-left">
+              <h3 className="text-xl font-bold mb-4 text-orange-400 leading-tight">Quick Service & Quality Assurance</h3>
+              <ul className="space-y-2 text-left text-[0.78rem] md:text-[0.9rem]">
                 <li>• Speed and reliability without compromising on quality are our operational standard</li>
                 <li>• With a 2-4 hour mixing plant and ISO-certified quality systems, we assure projects are completed faster without compromising standards</li>
                 <li>• 24/7 batching and dispatch for uninterrupted supply</li>
@@ -129,9 +148,11 @@ const Services = ({ companyName = "SKLP" }) => {
       </div>
 
       {/* Plant & Machinery Section */}
-      <div className="pt-4 md:pt-8 pb-0 px-0 bg-white">
+      <div className="pt-4 md:pt-8 pb-0 px-0 bg-white scroll-animate">
         <div className="w-full">
-          <h2 className="text-4xl font-bold text-center mb-12 text-orange-500">Plant & Machinery</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-orange-500 bg-white px-6 py-2 rounded-[30px] inline-block shadow-[0_4px_12px_rgba(0,0,0,0.1)]">Plant & Machinery</h2>
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 items-center overflow-visible px-4 md:px-0">
             <div className="space-y-6 order-1 lg:order-2">
               <p className="text-gray-700 leading-relaxed">

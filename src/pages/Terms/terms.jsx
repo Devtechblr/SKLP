@@ -107,7 +107,7 @@ export default function Terms() {
             </p>
             <p>
               <strong>Phone:</strong> +91 9900078808<br />
-              <strong>Email:</strong> Mr.Mataraj S.K. Gowda<br />
+              <strong>Email:</strong> <a href="mailto:nataraj@sklpconcrete.com" className="text-orange-500 hover:underline">nataraj@sklpconcrete.com</a><br />
               <strong>Address:</strong> Sy No. 100, Sompura, Kasaba and Taluk Malur, Kolar, Karnataka - 563130
             </p>
           </div>

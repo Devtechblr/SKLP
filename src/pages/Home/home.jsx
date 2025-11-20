@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './home.css'
 import HomeNavbar from '../../components/HomeNavbar.jsx'
 import SEO from '../../components/SEO.jsx'
@@ -23,6 +23,51 @@ const CUSTOMER_LOGOS = [
 
 const SCROLLING_LOGOS = [...CUSTOMER_LOGOS, ...CUSTOMER_LOGOS]
 
+const STATISTICS = [
+  { id: 'vehicles', label: 'vehicles', value: 10, suffix: '+' },
+  { id: 'projects', label: 'Projects', value: 5000, suffix: '+' },
+  { id: 'customers', label: 'customers', value: 2500, suffix: '+' },
+]
+
+const numberFormatter = new Intl.NumberFormat('en-IN')
+
+function LiveStat({ value, label, suffix = '+', valueClass = '', labelClass = '', duration = 1800 }) {
+  const [displayValue, setDisplayValue] = useState(0)
+
+  useEffect(() => {
+    let animationFrame
+    const startTime = performance.now()
+
+    const animate = (now) => {
+      const progress = Math.min((now - startTime) / duration, 1)
+      const nextValue = Math.round(progress * value)
+      setDisplayValue(nextValue)
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate)
+      }
+    }
+
+    animationFrame = requestAnimationFrame(animate)
+
+    return () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame)
+      }
+    }
+  }, [value, duration])
+
+  return (
+    <>
+      <div className={`font-bold text-gray-800 ${valueClass}`.trim()}>
+        {numberFormatter.format(displayValue)}
+        {suffix}
+      </div>
+      <div className={`text-gray-500 ${labelClass}`.trim()}>{label}</div>
+    </>
+  )
+}
+
 export default function Home({ companyName = 'SKLP' }) {
   const [showMore, setShowMore] = useState(false)
 
@@ -36,14 +81,18 @@ export default function Home({ companyName = 'SKLP' }) {
       <HomeNavbar />
       <div className="pt-[120px] md:pt-0">
         {/* Hero Section with Overlay Text */}
-        <div className="relative w-full">
+        <div className="relative w-full" data-reveal="up" data-reveal-once="true">
           <img 
             src="/assests/homehero.jpg" 
             alt="Construction site" 
             className="w-full h-auto object-contain block"
+            data-reveal="up"
           />
           {/* Overlay Text - Lower Left Position */}
-          <div className="absolute inset-0 flex flex-col items-start justify-end pb-6 md:pb-12 lg:pb-16 pl-4 md:pl-8 lg:pl-12 bg-black/30 md:bg-black/10">
+          <div
+            className="absolute inset-0 flex flex-col items-start justify-end pb-6 md:pb-12 lg:pb-16 pl-4 md:pl-8 lg:pl-12 bg-black/30 md:bg-black/10"
+            data-reveal="down"
+          >
             <div className="text-left text-white max-w-2xl md:max-w-3xl">
               <p className="text-xs md:text-base lg:text-lg mb-1 md:mb-3 font-medium">Welcome to SKLP</p>
               <h1 className="text-base md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
@@ -57,15 +106,15 @@ export default function Home({ companyName = 'SKLP' }) {
         <section className="max-w-7xl mx-auto px-4 py-8 md:py-16 bg-white">
           {/* Desktop Layout */}
           <div className="hidden md:grid md:grid-cols-2 gap-12 items-start">
-            <div>
+            <div data-reveal="up">
               <h2 className="text-3xl font-bold text-gray-800 mb-4">
                 SKLP (Shri Kodilingeshwara Prasanna) is a fast-growing construction solutions company based in Bengaluru, Karnataka.
               </h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-6 leading-relaxed font-normal">
                 Founded In May 2024, With 30+ dedicated members, a 2-acre state-of-the-art plant, and a fleet of 8+ vehicles, SKLP delivers high-quality, time-bound infrastructure solutions across Karnataka.
               </p>
               {showMore && (
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-600 mb-6 leading-relaxed font-normal">
                   With robust infrastructure, including a 2-acre production facility and 10+ vehicles, SKLP ensures rapid mobilization and consistent output. Our ISO-guided processes and advanced batching capabilities make us a dependable partner for critical, time-bound civil works.
                 </p>
               )}
@@ -79,24 +128,32 @@ export default function Home({ companyName = 'SKLP' }) {
             <div className="flex flex-col gap-6">
               {/* Statistics Row - Above Image */}
               <div className="flex items-center justify-between">
-                <div className="flex-1 text-center border-r border-gray-300 px-4">
-                  <div className="text-4xl font-bold text-gray-800 mb-2">10+</div>
-                  <div className="text-sm text-gray-500">vehicles</div>
-                </div>
-                <div className="flex-1 text-center border-r border-gray-300 px-4">
-                  <div className="text-4xl font-bold text-gray-800 mb-2">5,000+</div>
-                  <div className="text-sm text-gray-500">Projects</div>
-                </div>
-                <div className="flex-1 text-center px-4">
-                  <div className="text-4xl font-bold text-gray-800 mb-2">2,500+</div>
-                  <div className="text-sm text-gray-500">customers</div>
-                </div>
+                {STATISTICS.map((stat, index) => (
+                  <div
+                    key={`${stat.id}-desktop`}
+                    className={`flex-1 text-center px-4 ${
+                      index < STATISTICS.length - 1 ? 'border-r border-gray-300' : ''
+                    }`}
+                    data-reveal={index % 2 === 0 ? 'up' : 'down'}
+                    data-reveal-delay={index * 100}
+                  >
+                    <LiveStat
+                      value={stat.value}
+                      label={stat.label}
+                      suffix={stat.suffix}
+                      valueClass="text-4xl mb-2"
+                      labelClass="text-sm"
+                    />
+                  </div>
+                ))}
               </div>
               {/* Image */}
               <img 
                 src="/assests/aboutus.png" 
                 alt="Construction work" 
                 className="w-full h-[400px] object-cover rounded-lg shadow-lg"
+                data-reveal="down"
+                data-reveal-delay="120"
               />
             </div>
           </div>
@@ -104,18 +161,23 @@ export default function Home({ companyName = 'SKLP' }) {
           <div className="md:hidden flex flex-col gap-6">
             {/* Statistics Row */}
             <div className="flex items-center justify-between">
-              <div className="flex-1 text-center border-r border-gray-300 px-3">
-                <div className="text-2xl font-bold text-gray-800 mb-1">10+</div>
-                <div className="text-xs text-gray-500">vehicles</div>
-              </div>
-              <div className="flex-1 text-center border-r border-gray-300 px-3">
-                <div className="text-2xl font-bold text-gray-800 mb-1">5,000+</div>
-                <div className="text-xs text-gray-500">Projects</div>
-              </div>
-              <div className="flex-1 text-center px-3">
-                <div className="text-2xl font-bold text-gray-800 mb-1">2,500+</div>
-                <div className="text-xs text-gray-500">customers</div>
-              </div>
+              {STATISTICS.map((stat, index) => (
+                <div
+                  key={`${stat.id}-mobile`}
+                  className={`flex-1 text-center px-3 ${
+                    index < STATISTICS.length - 1 ? 'border-r border-gray-300' : ''
+                  }`}
+                  data-reveal={index % 2 === 0 ? 'up' : 'down'}
+                >
+                  <LiveStat
+                    value={stat.value}
+                    label={stat.label}
+                    suffix={stat.suffix}
+                    valueClass="text-2xl mb-1"
+                    labelClass="text-xs"
+                  />
+                </div>
+              ))}
             </div>
             {/* Image */}
             <div>
@@ -123,10 +185,11 @@ export default function Home({ companyName = 'SKLP' }) {
                 src="/assests/aboutus.png" 
                 alt="Construction work" 
                 className="w-full h-auto object-cover rounded-lg shadow-lg"
+                data-reveal="down"
               />
             </div>
             {/* Text Content */}
-            <div>
+            <div data-reveal="up">
               <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">
                 SKLP (Shri Kodilingeshwara Prasanna) is a fast-growing construction solutions company based in Bengaluru, Karnataka.
               </h2>
@@ -153,9 +216,14 @@ export default function Home({ companyName = 'SKLP' }) {
         {/* Happy Customers Section */}
         <section className="py-8 md:py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8 md:mb-12">Our Happy Customers</h2>
+            <h2
+              className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8 md:mb-12"
+              data-reveal="up"
+            >
+              Our Happy Customers
+            </h2>
             {/* Desktop: Scrolling logos */}
-            <div className="hidden md:block overflow-hidden">
+            <div className="hidden md:block overflow-hidden" data-reveal="down">
               <div className="customer-scroll">
                 <div className="customer-scroll-inner">
                   {SCROLLING_LOGOS.map((logo, index) => (
@@ -170,7 +238,7 @@ export default function Home({ companyName = 'SKLP' }) {
               </div>
             </div>
             {/* Mobile: Scrolling logos */}
-            <div className="md:hidden overflow-hidden">
+            <div className="md:hidden overflow-hidden" data-reveal="up">
               <div className="customer-scroll">
                 <div className="customer-scroll-inner">
                   {SCROLLING_LOGOS.map((logo, index) => (
