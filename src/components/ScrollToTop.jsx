@@ -5,7 +5,13 @@ export default function ScrollToTop() {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    // Disable scroll restoration to prevent browser from remembering scroll position
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual'
+    }
+    
+    // Immediately scroll to top without animation
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
   }, [pathname])
 
   return null
